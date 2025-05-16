@@ -42,7 +42,7 @@ const App = () => {
               <td>{item.name}</td>
               <td
                 style={{
-                  color: item.enable ? "rgb(255, 0, 0)" : "rgb(0, 128, 0)",
+                  color: item.enable ? "rgb(0, 128, 0)" : "rgb(255, 0, 0)",
                 }}
               >
                 {item.price}
