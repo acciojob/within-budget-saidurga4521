@@ -33,14 +33,22 @@ const App = () => {
       <input type="Number" id="input" value={input} onChange={handleChange} />
       <h2>Items you can buy are in green color</h2>
       <table>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td style={{ color: item.enable ? "red" : "green" }}>
-              {item.price}
-            </td>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <tr key={index}>
+              <td>{item.name}</td>
+              <td style={{ color: item.enable ? "red" : "green" }}>
+                {item.price}
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
