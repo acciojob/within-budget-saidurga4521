@@ -15,15 +15,12 @@ const App = () => {
   const [input, setInput] = useState();
   const handleChange = (e) => {
     const value = Number(e.target.value);
-    console.log(value);
     setInput(value);
-    const updatedData = data.map((item) => {
-      if (item.price > value) {
-        return { ...item, enable: true };
-      } else {
-        return { ...item, enable: false };
-      }
-    });
+
+    const updatedData = data.map((item) => ({
+      ...item,
+      enable: item.price <= value,
+    }));
     setData(updatedData);
   };
 
