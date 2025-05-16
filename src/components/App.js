@@ -43,7 +43,7 @@ const App = () => {
           {data.map((item, index) => (
             <tr key={index}>
               <td>{item.name}</td>
-              <td style={{ color: item.enable ? "red" : "green" }}>
+              <td style={{ color: item.enable ? "rgb(255, 0, 0)" : "green" }}>
                 {item.price}
               </td>
             </tr>
