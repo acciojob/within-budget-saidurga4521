@@ -1,13 +1,49 @@
-
+import { useState } from "react";
 import React from "react";
-import './../styles/App.css';
+import "./../styles/App.css";
 
 const App = () => {
+  const [data, setData] = useState([
+    { name: "Apple", price: 20, enable: false },
+    { name: "Banana", price: 10, enable: false },
+    { name: "Neutella", price: 30, enable: false },
+    { name: "Razor", price: 5, enable: false },
+    { name: "CornFlakes", price: 15, enable: false },
+    { name: "Sound Bar", price: 50, enable: false },
+    { name: "Iphone", price: 80, enable: false },
+  ]);
+  const [input, setInput] = useState();
+  const handleChange = (e) => {
+    const value = Number(e.target.value);
+    console.log(value);
+    setInput(value);
+    const updatedData = data.map((item) => {
+      if (item.price > value) {
+        return { ...item, enable: true };
+      } else {
+        return { ...item, enable: false };
+      }
+    });
+    setData(updatedData);
+  };
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      <lable for="input">Enter your budget to check available items:</lable>
+      <input type="Number" id="input" value={input} onChange={handleChange} />
+      <h2>Items you can buy are in green color</h2>
+      <table>
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td>{item.name}</td>
+            <td style={{ color: item.enable ? "red" : "green" }}>
+              {item.price}
+            </td>
+          </tr>
+        ))}
+      </table>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
