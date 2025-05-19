@@ -4,13 +4,13 @@ import "./../styles/App.css";
 
 const App = () => {
   const [data, setData] = useState([
-    { name: "Apple", price: 20 },
-    { name: "Banana", price: 10 },
-    { name: "Neutella", price: 30 },
-    { name: "Razor", price: 5 },
-    { name: "CornFlakes", price: 15 },
-    { name: "Sound Bar", price: 50 },
-    { name: "Iphone", price: 80 },
+    { id: 1, name: "Apple", price: 20 },
+    { id: 2, name: "Banana", price: 10 },
+    { id: 3, name: "Neutella", price: 30 },
+    { id: 4, name: "Razor", price: 5 },
+    { id: 5, name: "CornFlakes", price: 15 },
+    { id: 6, name: "Sound Bar", price: 50 },
+    { id: 7, name: "Iphone", price: 80 },
   ]);
   const [input, setInput] = useState("");
   const handleChange = (e) => {
@@ -37,8 +37,7 @@ const App = () => {
               <td>{item.name}</td>
               <td
                 style={{
-                  color:
-                    item.price <= input ? "rgb(0, 128, 0)" : "rgb(255, 0, 0)",
+                  color: item.price <= input ? "green" : "red",
                 }}
               >
                 {item.price}
